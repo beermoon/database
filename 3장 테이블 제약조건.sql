@@ -69,10 +69,10 @@ CREATE TABLE `User4` (
     `addr` VARCHAR(20)
 );
 
-INSERT INTO `User4` value('P101','김유신','M','45','010-1001-1001','경주');
+INSERT INTO `User4` value ('P101','김유신','M','010-1001-1001','경주');
 INSERT INTO `User4` value('P102','김춘추','M','45','010-1001-1002','경주');
 INSERT INTO `User4` value('P103','장보고','M','45','010-1001-1003','경주');
-INSERT INTO `User4` value('P104','라묜','M',Null,'010-1001-1004','경주');
+INSERT INTO `User4` (`uid`,`name`,`gender`,`hp`,`addr`) value ('P114','라묜','M','010-1001-1014','경주');
 INSERT INTO `User4` value('P105','라맨','M',' ','010-1001-1005','경주');
 
 select * from `User4`;
