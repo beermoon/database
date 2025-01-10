@@ -123,4 +123,50 @@ delimiter $$
     delimiter ;
     
     call proc_test7();
+    
+    #실습 5-11
+    delimiter $$
+    create function func_test1(_userid varchar(10)) returns int
+    deterministic
+    begin
+		declare total int;
+        select sum(`sale`) into total from `Sales` where `uid`=_userid;
+        return total;
+	end $$
+    delimiter ;
+    
+    
+    # 저장함수 호출
+    select func_test1('a101');
+    
+  
+    
+    delimiter $$
+		create function func_test2(_sale int) returns double
+        deterministic
+        begin 
+			declare bonus double;
+            
+            if(_sale >= 100000) then
+				set bonus = _sale * 0.1;
+			else
+				set bonus = _sale * 0.05;
+			end if;
+            
+            return bonus;
+            end $$
+            delimiter ;
+        
+        use studydb;
+            
+	select 
+		`uid`,
+        `year`,
+        `month`,
+        `sale`,
+        func_test2(`sale`) as `bonus`
+        from `Sale`;
+            
+    
+    
 
