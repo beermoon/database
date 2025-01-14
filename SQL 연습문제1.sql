@@ -73,11 +73,13 @@ insert into `Order` (`orderId`,`orderProduct`,`orderCount`,`orderDate`) values('
 # 실습 1-4
 select * from `Customer`;
 
+
 # 실습 1-5
 select `custId`,`name`,`hp` from `Customer`;
 
 # 실습 1-6
 select * from `Product`;
+
 
 # 실습 1-7
 select `company` from `Product`;
@@ -85,25 +87,27 @@ select `company` from `Product`;
 # 실습 1-8
 select distinct `company` from `Product`;
 
+
 # 실습 1-9
 select `prodName`,`price` from `Product`;
 
+
 # 실습 1-10
 select `prodName`, `price` + 500 as `조정단가`  from `Product`;
-
-
 # 실습 1-11
 select `prodName`,`stock`,`price` from `Product` where company = '오리온';
 
 # 실습 1-12
 select `orderProduct` , `orderCount`, `orderDate` from `Order` where orderId='c102';
-
 # 실습 1-13
 select `orderProduct`,`orderCount`,`orderDate` from `Order` where orderId='c102' and orderCount >= 2;
+
 
 # 실습 1-14
 select * from `Product` where 1000 <= price and price <= 2000;
 select * from `Product` where `price` between 1000 and 2000;
+
+
 
 
 # 실습 1-15
@@ -112,6 +116,7 @@ select `custid`,`name`,`hp`,`addr` from `Customer` where `name` like '김%';
 # 실습 1-16
 select `custid`,`name`,`hp`,`addr` from `Customer` where `name` like '__';
 
+
 # 실습 1-17
 select * from `Customer` where `hp` is Null;
 
@@ -119,14 +124,14 @@ select * from `Customer` where `hp` is Null;
 select * from `Customer` where `addr` is not null;
 
 # 실습 1-19
-select * from `Customer`  order by `rdate` desc; 
+select * from `Customer`  order by `rdate` desc;
 
 # 실습 1-20
-
 select * 
 from `Order`
  where `orderCount` >= 3 
  order by `orderCount` desc, `orderProduct` asc;
+
 
 
 # 실습 1-21
@@ -137,7 +142,6 @@ select SUM(`stock`) as `재고량 합계` from `Product` where `company` = '농�
 
 # 실습 1-23
 select COUNT(*) as `고객수` from `Customer`;
-
 
 # 실습 1-24
 select count(distinct `company`) as `제조업체 수` from `Product`;
@@ -157,6 +161,8 @@ select
  from
  `product` group by `company` order by `제조업체`;
  
+
+ 
  
 # 실습 1-27
 select 
@@ -164,6 +170,10 @@ select
  from
  `product` group by `company`
  having `제품수` >= 2;
+ 
+
+ 
+ 
 
 # 실습 1-28
 select * from `Order`;
@@ -171,16 +181,21 @@ select `orderProduct` , `orderId`, SUM(`orderCount`) as `총 주문수량` from 
 group by `orderProduct`,`orderId`
 order by `orderProduct`;
 
+
+
 # 실습 1-29
 select * from `Order` as a
 join `Product` as b
 on a.orderProduct = b.prodNo
  where `orderId` = 'c102';
+ 
 
 # 실습 1-30
 select * from `Order` as a
 JOIN `Customer` AS b on a.orderId = b.custId
 JOIN `Product` AS c on a.orderProduct = c.prodNo
  where substr(`orderDate`,1,10)  = '2025-01-13';
+ 
+
 
 
