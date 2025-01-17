@@ -1,0 +1,10 @@
+# 날짜 : 2025/01/14
+# 이름 : 최명기
+# 내용 : sql 연습문제 2
+
+
+create database `BookStore`;
+create user 'bookstore'@'%' identified by '1234';
+grant all privileges on BookStore.* TO 'bookstore'@'%';
+flush privileges;
+
