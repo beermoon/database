@@ -1,4 +1,4 @@
-#날짜 : 2025/01/06
+																		#날짜 : 2025/01/06
 #이름 : 최명기
 #내용 : 1장 데이터베이스 설치와 생성 
 
@@ -7,8 +7,8 @@ CREATE DATABASE `StudyDB`;
 DROP DATABASE `StudyDB`;
 
 #실습 1-2
-CREATE USER 'Feathermoon0318'@'%' identified by '1234';
-GRANT ALL privileges on StudyDB.* to 'Feathermoon0318'@'%';
+CREATE USER 'root'@'%' identified by '1234';
+GRANT ALL privileges on StudyDB.* to 'root'@'%';
 flush privileges;
 
 #실습 1-3
